@@ -1,11 +1,19 @@
 
 
 const section = document.querySelector("section");
-const playerlivesCount = document.querySelector("span");
-let playerLives = 6;
+const playerlivesCount = document.querySelector(".lives");
+let playerLives = 7;
+//Tiempo
+let timeStart;
+let timeInterval;
+
+//Numero de nivel
+let level = 0;
+const playerLevel = document.querySelector(".level");
 
 //link text
 playerlivesCount.textContent = playerLives;
+playerLevel.textContent = level;
 
 
 
@@ -84,17 +92,20 @@ const checkCards = (e) => {
             playerLives--;
             playerlivesCount.textContent = playerLives
             if(playerLives === 0){
-                restart(swal({title:"Perdiste...", text:"Buena suerte la proxima"}));
+                swal({title: "Perdiste...", text:"Buena suerte para la proxima..."})
+                .then((value) => {
+                 location.reload();
+});
             }
         }
     }
     //Run a check to see if we won the game
     if(toggleCard.length > 11){
-        restart(swal({title:"¡Ganaste!", text:"¡Felicitaciones"}))
+        restart(swal({title:"¡Superaste el nivel!", text:"¡Felicitaciones! presiona <b>ok</b> para continuar"}))
     }
 };
 
-//Restart
+//Restart 2 level
 const restart = () => {
     let cardData = randomize();
     let faces = document.querySelectorAll(".face");
@@ -110,10 +121,17 @@ const restart = () => {
         section.style.pointerEvents = "all";
     }, 1000)
     });
-    playerLives = 6;
+    level ++;
+    console.log(level);
+    playerLives = 7;
+    if(!playerLives <=0){
+        playerLives--;
+    }
     playerlivesCount.textContent = playerLives;
     setTimeout(() => window.alert(text), 100)
 }
+
+
 
 
 cardGenerator();
