@@ -15,6 +15,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: 'Lexter','Sans-serif';
 }
 
 h1{
@@ -73,6 +74,40 @@ section {
     background: white;
     backface-visibility: hidden;
 }
+
+.inactive {
+    display: none;
+}
+
+.init p{
+    font-size: 15px;
+    margin-left: 7%;
+    color: rgb(43, 43, 43);
+}
+
+.init img{
+    position: relative;
+    margin-left: 40%;
+    width: 60px;
+}
+
+.boton button{
+    margin-left: 35%;
+    margin-top: 5%;
+    background-color: rgb(8, 150, 8);
+    width: 100px;
+    height: 50px;
+    border: 1px solid rgb(8, 150, 8);
+    border-radius: 5%;
+    font-family: 'Lexend', 'Sans-serif';
+    color: white;
+    transition: transform .3s ease-out;
+}
+.boton button:hover{
+    background-color: darkgreen;
+    transform: translate(0, -5px);
+}
+
 
 /* Swal */
 .swal-overlay {

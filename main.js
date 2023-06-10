@@ -8,14 +8,21 @@ let timeStart;
 let timeInterval;
 
 //Numero de nivel
-let level = 0;
+let level = 1;
 const playerLevel = document.querySelector(".level");
 
 //link text
 playerlivesCount.textContent = playerLives;
 playerLevel.textContent = level;
 
-
+//Empezar juego
+window.onload(showGame());
+function showGame(){
+    divContain = document.querySelector(".container");
+    divInit = document.querySelector(".init");
+    
+    
+}
 
 //Generate data [{}]
 const getData = () => [
@@ -99,9 +106,18 @@ const checkCards = (e) => {
             }
         }
     }
-    //Run a check to see if we won the game
+    //Run a check to see if we won the level
     if(toggleCard.length > 11){
-        restart(swal({title:"¡Superaste el nivel!", text:"¡Felicitaciones! presiona <b>ok</b> para continuar"}))
+        restart(swal({title:"¡Superaste el nivel!", text:"¡Felicitaciones! presiona ok para continuar"}))
+        .then((value) => {
+            location.reload();
+        });
+    }
+
+    //Run a check to see if we won the game
+    if(toggleCard.length > 11 || level == 4){
+        swal({title:"¡Ganaste!", text:"¡Felicitaciones! superaste todos los niveles"})
+        
     }
 };
 
@@ -121,14 +137,16 @@ const restart = () => {
         section.style.pointerEvents = "all";
     }, 1000)
     });
-    level ++;
+    level++;
+
     console.log(level);
     playerLives = 7;
     if(!playerLives <=0){
         playerLives--;
     }
     playerlivesCount.textContent = playerLives;
-    setTimeout(() => window.alert(text), 100)
+    playerLevel.textContent = level;
+    //setTimeout(() => window.alert(text), 1000)
 }
 
 
