@@ -16,11 +16,13 @@ playerlivesCount.textContent = playerLives;
 playerLevel.textContent = level;
 
 //Empezar juego
-window.onload(showGame());
 function showGame(){
     divContain = document.querySelector(".container");
     divInit = document.querySelector(".init");
-    
+    divContain.classList.toggle('inactive');
+    divInit.classList.toggle('inactive');
+    divTexto = document.querySelector(".texto");
+    divTexto.classList.toggle("inactive")
     
 }
 
