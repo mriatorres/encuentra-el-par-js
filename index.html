@@ -16,7 +16,7 @@
     <h1>¡Reta tu memoria!</h1>
     <p>Da click al boton para comenzar</p>
     <div class="boton">
-    <button id="start">Comenzar</button>
+    <button id="start" onclick="showGame()">Comenzar</button>
     </div>
   </div>
   <div class="container inactive">
@@ -24,7 +24,7 @@
         <p>¡Encuentra el par!</p>
         <div class="spans">
         <h2> Lives <span class="lives"></span></h2>
-        <h2> Tiempo <span class=""></span></h2>
+        <!-- <h2> Tiempo <span class=""></span></h2> -->
         <h2> Nivel <span class="level"></span></h2>
     </div>
      </div>
@@ -33,7 +33,16 @@
    </section>
 </div> 
   
-
+<div class="winner inactive">
+  <div class="winImage">
+    <img src="https://bettysgraphics.neocities.org/images/animals/bird%20110.gif" alt="">
+  </div>
+  <h1>Ganaste</h1>
+  <h3>¡Felicitaciones superaste todos los niveles!</h3>
+  <div class="boton">
+  <button onclick="location.reload()">Jugar de nuevo</button>
+  </div>
+ </div>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./main.js"></script>
 </body>

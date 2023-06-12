@@ -21,9 +21,6 @@ function showGame(){
     divInit = document.querySelector(".init");
     divContain.classList.toggle('inactive');
     divInit.classList.toggle('inactive');
-    divTexto = document.querySelector(".texto");
-    divTexto.classList.toggle("inactive")
-    
 }
 
 //Generate data [{}]
@@ -110,16 +107,19 @@ const checkCards = (e) => {
     }
     //Run a check to see if we won the level
     if(toggleCard.length > 11){
-        restart(swal({title:"¡Superaste el nivel!", text:"¡Felicitaciones! presiona ok para continuar"}))
+        restart(setTimeout(swal({title:"¡Superaste el nivel!", text:"¡Felicitaciones! presiona ok para continuar"})), 1000)
         .then((value) => {
             location.reload();
         });
     }
 
     //Run a check to see if we won the game
-    if(toggleCard.length > 11 || level == 4){
-        swal({title:"¡Ganaste!", text:"¡Felicitaciones! superaste todos los niveles"})
-        
+    if(level === 4){
+        // swal({title:"¡Ganaste!", text:"¡Felicitaciones! superaste todos los niveles"})
+        let divWin = document.querySelector(".winner");
+        divWin.classList.remove("inactive");
+        divContain = document.querySelector(".container");
+        divContain.classList.add('inactive');
     }
 };
 
